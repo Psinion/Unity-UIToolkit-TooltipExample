@@ -1,0 +1,33 @@
+@import url("/Assets/Example/UI/Assets/Styles/variables.uss");
+
+/* Buttons */
+
+.psi-button {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border-color: var(--primary-down);
+    border-width: 2px;
+    background-color: var(--primary);
+    color: var(--base-strong);
+    transition: var(--default-transition);
+    min-height: 32px;
+}
+
+.psi-button:hover {
+    border-color: var(--primary-up);
+}
+
+.psi-button.icon {
+    background-color: initial;
+    border-color: initial;
+    border-width: 0;
+}
+
+.psi-button.icon > .icon {
+    transition: var(--default-transition);
+    --unity-image-tint-color: var(--base-strong);
+}
+
+.psi-button.icon:hover > .icon {
+    --unity-image-tint-color: var(--primary-up);
+}

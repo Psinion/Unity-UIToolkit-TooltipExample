@@ -1,0 +1,46 @@
+﻿@import url("/Assets/Example/UI/Assets/Styles/typography.uss");
+@import url("/Assets/Example/UI/Assets/Styles/base-styles.uss");
+
+.base-strong {
+    color: var(--base-strong);
+}
+
+.primary-up {
+    color: var(--primary-up);
+}
+
+.primary {
+    color: var(--primary);
+}
+
+.primary-down {
+    color: var(--primary-down);
+}
+
+.secondary-up {
+    color: var(--secondary-up);
+}
+
+.secondary {
+    color: var(--secondary);
+}
+
+.secondary-down {
+    color: var(--secondary-down);
+}
+
+.tertiary-up {
+    color: var(--tertiary-up);
+}
+
+.tertiary {
+    color: var(--tertiary);
+}
+
+.tertiary-down {
+    color: var(--tertiary-down);
+}
+
+.accent {
+    color: var(--accent);
+}

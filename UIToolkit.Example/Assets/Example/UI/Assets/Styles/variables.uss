@@ -1,0 +1,30 @@
+:root {
+    --background-header: #1c1c35;
+    --background-body: #1c1c35;
+    --background-footer: #22222E;
+
+    --primary-up: #9a6efd;
+    --primary: #8052F6;
+    --primary-down: #6c33ff;
+
+    --secondary-up: #6a6ca6;
+    --secondary: #393A5A;
+    --secondary-down: #232337;
+
+    --tertiary-up: #9493bc;
+    --tertiary: #706F8E;
+    --tertiary-down: #434355;
+
+    --quaternary: #ADA9BA;
+
+    --success: #0c8500;
+    --warning: #ffdf2a;
+    --critical: #f30000;
+    
+    --accent: #ff8300;
+
+    --base-strong: #E9E9E9;
+
+    --default-transition: 0.3s ease-out;
+    --fast-transition: 0.1s ease-out;
+}

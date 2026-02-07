@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Example/UI/Tooltips/Base/Tooltip.uss?fileID=7433441132597879392&amp;guid=d9a425848c255df46a49d2caa2a18997&amp;type=3#Tooltip"/>
+    <ui:VisualElement name="tooltip-container" class="tooltip">
+    </ui:VisualElement>
+</ui:UXML>

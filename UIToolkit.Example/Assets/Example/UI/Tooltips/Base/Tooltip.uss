@@ -1,0 +1,15 @@
+@import url("/Assets/Example/UI/Assets/Styles/default-theme.uss");
+
+.tooltip {
+    background-color: var(--secondary);
+    color: var(--base-strong);
+    padding: 6px 10px;
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: var(--secondary-up);
+    font-size: 12px;
+    position: absolute;
+    max-width: 300px;
+    white-space: normal;
+    transition: var(--default-transition);
+}
