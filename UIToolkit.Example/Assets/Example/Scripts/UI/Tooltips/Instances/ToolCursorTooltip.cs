@@ -47,7 +47,7 @@ namespace UIToolkit.Tooltip.Example.UI.Tooltips.Instances
         public void Hide()
         {
             titleLabel.visible = false;
-            resourceRequirements.Clear();
+            resourceRequirements.visible = false;
         }
 
         private void BindInternal(ToolCursorTooltipData data)
@@ -55,6 +55,8 @@ namespace UIToolkit.Tooltip.Example.UI.Tooltips.Instances
             titleLabel.style.display = DisplayStyle.Flex;
             titleLabel.visible = true;
             titleLabel.text = data.title;
+            
+            resourceRequirements.visible = true;
         
             resourceRequirements.Clear();
             var resourceItem = CreateResourceItem(data.moneyRequirement);

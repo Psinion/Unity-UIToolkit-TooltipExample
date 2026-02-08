@@ -42,7 +42,7 @@ namespace UIToolkit.Tooltip.Example.UI.Tooltips.Instances
         {
             titleLabel.visible = false;
             titleDescription.visible = false;
-            resourceRequirements.Clear();
+            resourceRequirements.visible = false;
         }
 
         private void BindInternal(ToolTooltipData data)
@@ -62,6 +62,8 @@ namespace UIToolkit.Tooltip.Example.UI.Tooltips.Instances
                 titleDescription.visible = true;
                 titleDescription.text = data.description;
             }
+            
+            resourceRequirements.visible = true;
         
             resourceRequirements.Clear();
             var resourceItem = CreateResourceItem(data.moneyRequirement);

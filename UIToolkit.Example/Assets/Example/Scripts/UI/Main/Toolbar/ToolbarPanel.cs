@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using UIToolkit.Tooltip.Example.UI.Buttons.Data;
+using UIToolkit.Tooltip.Example.UI.Buttons.Wrappers;
+using UIToolkit.Tooltip.Example.UI.Main.Toolbar.Enums;
 using UIToolkit.Tooltip.Example.UI.Tooltips;
 using UIToolkit.Tooltip.Example.UI.Tooltips.Data;
 using UIToolkit.Tooltip.Example.UI.Tooltips.Data.Base;
@@ -11,19 +15,13 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar
 {
     public class ToolbarPanel : MonoBehaviour
     {
-        public static readonly TooltipConfig ToolbarTooltipConfig = new()
-        {
-            offset = new Vector2(0, 10),
-            position = TooltipPosition.Top,
-            maxWidth = 300f,
-            showDelay = 350,
-        };
-        
         [SerializeField] private UIDocument uiDocument;
         
-        //private IToolManager toolManager = null!;
+        private IToolManager toolManager;
     
         private VisualElement buttonsContainer;
+        
+        private readonly List<ButtonWrapper> buttonWrappers = new();
     
         private void OnValidate()
         {
@@ -35,6 +33,8 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar
 
         private void Start()
         {
+            toolManager = ToolManager.Instance;
+            
             Draw();
         }
 
@@ -50,22 +50,57 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar
         
             buttonsContainer!.Clear();
         
-            RegisterButton("BTN1", new ToolTooltipData("BTN1", "BTN1 some description", 25), null);
-            RegisterButton("BTN2", new ToolTooltipData("BTN2", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 200), null);
-            RegisterButton("BTN3", new ToolTooltipData("BTN3", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 80), null);
+            CreateExampleButton(
+                "exp1", 
+                "BTN1", 
+                "BTN1", 
+                "BTN1 some description", 
+                25
+                );
+            CreateExampleButton(
+                "exp2", 
+                "BTN2", 
+                "BTN2", 
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+                200
+                );
+            CreateExampleButton(
+                "exp3", 
+                "BTN3", 
+                "BTN3", 
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
+                80
+                );
+            
+            foreach (var buttonWrapper in buttonWrappers)
+            {
+                buttonsContainer.Add(buttonWrapper.Button);
+            }
         }
     
-        private void RegisterButton(string buttonText, ITooltipData tooltipData, Action onClick)
+        private ButtonWrapper CreateExampleButton(
+            string key,
+            string displayText,
+            string title,
+            string description,
+            int moneyRequirement)
         {
-            var button = new Button();
-            button.text = buttonText;
-            button.AddToClassList("psi-button");
-            
-            button.AddTooltip(tooltipData, ToolbarTooltipConfig);
+            var buttonData = new ExampleButtonData(
+                key,
+                displayText,
+                title,
+                description,
+                moneyRequirement
+            );
 
-            button.clicked += onClick;
-            
-            buttonsContainer!.Add(button);
+            buttonData.OnClick = () =>
+            {
+                toolManager.SelectTool(ToolType.Spawn, buttonData);
+            };
+        
+            var wrapper = new ButtonWrapper(buttonData);
+            buttonWrappers.Add(wrapper);
+            return wrapper;
         }
     }
 }
