@@ -4,7 +4,7 @@ namespace UIToolkit.Tooltip.Example.Core
 {
     public class SingletonMono<T> : MonoBehaviour where T : Component
     {
-        protected static T? instance;
+        protected static T instance;
         public static T Instance
         {
             get

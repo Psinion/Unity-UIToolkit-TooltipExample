@@ -1,0 +1,3 @@
+#tooltip-title, #tooltip-description {
+    white-space: normal;
+}

@@ -1,0 +1,30 @@
+@import url("/Assets/Example/UI/Assets/Styles/default-theme.uss");
+
+#resources {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    display: flex;
+    align-items: flex-end;
+}
+
+#resources-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.resource {
+    margin-top: 4px;
+    padding: 0 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    background-color: var(--secondary);
+    border-radius: 12px;
+}
+
+.resource .count {
+    margin-left: 4px;
+    width: 60px;
+}

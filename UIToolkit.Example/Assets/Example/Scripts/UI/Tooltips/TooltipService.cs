@@ -81,12 +81,12 @@ namespace UIToolkit.Tooltip.Example.UI.Tooltips
             ITooltipData tooltipData, 
             TooltipConfig? config = null, 
             Vector2? screenPosition = null, 
-            VisualElement? targetElement = null)
+            VisualElement targetElement = null)
         {
             var currentConfig = config ?? defaultConfig;
         
-            //tooltipInstance = tooltipsFactory.CreateTooltip(tooltipData);
-            //tooltipInstance!.Integrate(tooltipContainer);
+            tooltipInstance = tooltipsFactory.CreateTooltip(tooltipData);
+            tooltipInstance!.Integrate(tooltipContainer);
         
             tooltipContainer.style.maxWidth = currentConfig.maxWidth;
             tooltipContainer.visible = true;
@@ -105,7 +105,7 @@ namespace UIToolkit.Tooltip.Example.UI.Tooltips
             }).ExecuteLater(currentConfig.showDelay);
         }
     
-        private void PositionAndShow(TooltipConfig config, Vector2? screenPosition, VisualElement? targetElement)
+        private void PositionAndShow(TooltipConfig config, Vector2? screenPosition, VisualElement targetElement)
         {
             if (targetElement != null)
             {

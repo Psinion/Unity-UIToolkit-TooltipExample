@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Example/UI/Main/Toolbar/Toolbar.uss"/>
+    <ui:VisualElement name="toolbar-panel">
+        <ui:VisualElement name="buttons">
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

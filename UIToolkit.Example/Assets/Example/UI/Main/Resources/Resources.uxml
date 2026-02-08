@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Example/UI/Main/Resources/Resources.uss"/>
+    <ui:VisualElement name="resources">
+        <ui:VisualElement name="resources-list">
+            <ui:VisualElement name="money" class="resource">
+                <ui:Label text="Money:" class="count caption-regular primary-up">
+                </ui:Label>
+                <ui:Label text="0" data-source-path="MoneyCurrent" class="count caption-regular base-strong">
+                    <Bindings>
+                        <ui:DataBinding property="text" binding-mode="ToTarget"/>
+                    </Bindings>
+                </ui:Label>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
