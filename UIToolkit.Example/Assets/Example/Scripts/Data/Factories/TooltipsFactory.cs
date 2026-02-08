@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using UIToolkit.Tooltip.Example.Core;
 using UIToolkit.Tooltip.Example.Data.Enums;
+using UIToolkit.Tooltip.Example.Gameplay;
 using UIToolkit.Tooltip.Example.UI.Tooltips.Data;
 using UIToolkit.Tooltip.Example.UI.Tooltips.Data.Base;
 using UIToolkit.Tooltip.Example.UI.Tooltips.Instances;
 using UIToolkit.Tooltip.Example.UI.Tooltips.Instances.Base;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 namespace UIToolkit.Tooltip.Example.Data.Factories
@@ -15,7 +17,13 @@ namespace UIToolkit.Tooltip.Example.Data.Factories
     {
         // Here may be your approach for prefabs loader (Resources, Addressables, etc.)
         [SerializeField] 
-        private VisualTreeAsset textTooltipTempalate;
+        private VisualTreeAsset textTooltipTemplate;
+        
+        [SerializeField] 
+        private VisualTreeAsset toolTooltipTemplate;
+        
+        [SerializeField] 
+        private VisualTreeAsset toolCursorTooltipTemplate;
 
         private Dictionary<TooltipType, VisualTreeAsset> visualTreeDict = new();
         
@@ -28,12 +36,29 @@ namespace UIToolkit.Tooltip.Example.Data.Factories
             this.gameResourcesService = gameResourcesService;
         }*/
 
+        private void OnValidate()
+        {
+            if (textTooltipTemplate == null)
+            {
+                Debug.LogError("TextTooltipTemplate is not found.");
+            }
+            
+            if (toolTooltipTemplate == null)
+            {
+                Debug.LogError("ToolTooltipTemplate is not found.");
+            }
+            
+            if (toolCursorTooltipTemplate == null)
+            {
+                Debug.LogError("ToolCursorTooltipTemplate is not found.");
+            }
+        }
+        
         private void Start()
         {
-            if (textTooltipTempalate != null)
-            {
-                visualTreeDict[TooltipType.TextTooltipTemplate] = textTooltipTempalate;
-            }
+            visualTreeDict[TooltipType.TextTooltipTemplate] = textTooltipTemplate;
+            visualTreeDict[TooltipType.ToolTooltipTemplate] = toolTooltipTemplate;
+            visualTreeDict[TooltipType.ToolCursorTooltipTemplate] = toolCursorTooltipTemplate;
         }
 
         private TemplateContainer GetTooltip(TooltipType type)
@@ -65,7 +90,7 @@ namespace UIToolkit.Tooltip.Example.Data.Factories
             return new TextTooltip(tooltipTemplate, data);
         }
     
-        /*public ToolTooltip CreateToolTooltip(ToolTooltipData data)
+        public ToolTooltip CreateToolTooltip(ToolTooltipData data)
         {
             var tooltipTemplate = GetTooltip(TooltipType.ToolTooltipTemplate);
             if (tooltipTemplate == null)
@@ -73,7 +98,7 @@ namespace UIToolkit.Tooltip.Example.Data.Factories
                 return default;
             }
 
-            return new ToolTooltip(tooltipTemplate, data, prefabsDb);
+            return new ToolTooltip(tooltipTemplate, data);
         }
 
         public ToolCursorTooltip CreateToolCursorTooltip(ToolCursorTooltipData data)
@@ -84,16 +109,16 @@ namespace UIToolkit.Tooltip.Example.Data.Factories
                 return default;
             }
 
-            return new ToolCursorTooltip(tooltipTemplate, data, prefabsDb, gameResourcesService);
-        }*/
+            return new ToolCursorTooltip(tooltipTemplate, data, GameResourcesService.Instance);
+        }
 
         public ITooltipInstance CreateTooltip(ITooltipData data)
         {
             return data switch
             {
                 TextTooltipData textData => CreateTextTooltip(textData),
-                //ToolTooltipData toolData => CreateToolTooltip(toolData),
-                //ToolCursorTooltipData toolData => CreateToolCursorTooltip(toolData),
+                ToolTooltipData toolData => CreateToolTooltip(toolData),
+                ToolCursorTooltipData toolData => CreateToolCursorTooltip(toolData),
                 _ => throw new NotImplementedException()
             };
         }

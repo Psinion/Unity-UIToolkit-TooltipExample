@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Example/UI/Tooltips/ToolTooltip.uss?fileID=7433441132597879392&amp;guid=204e9a7071e345bca62ecd6f48612987&amp;type=3#ToolTooltip"/>
+    <ui:VisualElement>
+        <ui:Label name="title" text="Title" class="h4 accent"/>
+        <ui:VisualElement name="resource-requirements" class="caption-regular"/>
+        <ui:Label name="description" text="Description" class="caption-regular"/>
+    </ui:VisualElement>
+</ui:UXML>

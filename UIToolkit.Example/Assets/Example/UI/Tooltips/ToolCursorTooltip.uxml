@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Examples/UI/Tooltips/ToolCursorTooltip.uss?fileID=7433441132597879392&amp;guid=cf4611b22a734a5fb3a98adebbf52cf2&amp;type=3#ToolCursorTooltip"/>
+    <ui:VisualElement>
+        <ui:Label name="title" text="Title" class="h4 accent"/>
+        <ui:VisualElement name="resource-requirements" class="caption-regular"/>
+    </ui:VisualElement>
+</ui:UXML>

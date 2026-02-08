@@ -7,9 +7,9 @@ using UIToolkit.Tooltip.Example.UI.Tooltips.Extensions;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace UIToolkit.Tooltip.Example.UI.Main
+namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar
 {
-    public class Toolbar : MonoBehaviour
+    public class ToolbarPanel : MonoBehaviour
     {
         public static readonly TooltipConfig ToolbarTooltipConfig = new()
         {
@@ -50,9 +50,9 @@ namespace UIToolkit.Tooltip.Example.UI.Main
         
             buttonsContainer!.Clear();
         
-            RegisterButton("BTN1", new TextTooltipData("BTN1", "BTN1 some description"), null);
-            RegisterButton("BTN2", new TextTooltipData("BTN2", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."), null);
-            RegisterButton("BTN3", new TextTooltipData("BTN3", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), null);
+            RegisterButton("BTN1", new ToolTooltipData("BTN1", "BTN1 some description", 25), null);
+            RegisterButton("BTN2", new ToolTooltipData("BTN2", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 200), null);
+            RegisterButton("BTN3", new ToolTooltipData("BTN3", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 80), null);
         }
     
         private void RegisterButton(string buttonText, ITooltipData tooltipData, Action onClick)

@@ -658,6 +658,7 @@ GameObject:
   - component: {fileID: 2145982387}
   - component: {fileID: 2145982388}
   - component: {fileID: 2145982389}
+  - component: {fileID: 2145982390}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -692,7 +693,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef82f8c692ad4b07aaadeff36bb775a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.Data.Factories.TooltipsFactory
-  textTooltipTempalate: {fileID: 9197481963319205126, guid: 99db37b59738a19428beb80f982fe813, type: 3}
+  textTooltipTemplate: {fileID: 9197481963319205126, guid: 99db37b59738a19428beb80f982fe813, type: 3}
+  toolTooltipTemplate: {fileID: 9197481963319205126, guid: 6aa98c935ad9423ca29f6f5cb8813fbd, type: 3}
+  toolCursorTooltipTemplate: {fileID: 9197481963319205126, guid: de8af72e41af40c5b9fbdb06a6a308a7, type: 3}
 --- !u!114 &2145982389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +710,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.Gameplay.GameResourcesService
   moneyAddInterval: 1
   moneyCurrent: 100
+--- !u!114 &2145982390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145982386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21f367201c74ea199dd971424a1e5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.UI.Main.ToolManager
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

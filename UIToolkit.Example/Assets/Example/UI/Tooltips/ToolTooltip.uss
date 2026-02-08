@@ -1,0 +1,34 @@
+#title, #description {
+    white-space: normal;
+}
+
+#title {
+    margin-bottom: 8px;
+}
+
+#description {
+    margin-top: 16px;
+}
+
+.resource-requirements {
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.resource-item-title {
+    margin-right: 8px;
+    color: var(--primary-up);
+}
+
+.resource-item-amount {
+    margin: 0;
+    padding: 0;
+    color: var(--base-strong);
+    min-width: 40px;
+}

@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/Example/UI/TextTooltip/TextTooltip.uss"/>
+    <Style src="project://database/Assets/Example/UI/Tooltips/TextTooltip.uss?fileID=7433441132597879392&amp;guid=ed43cf83944602e4cb0238eaa9559727&amp;type=3#TextTooltip"/>
     <ui:VisualElement>
         <ui:Label name="tooltip-title" text="Title" class="h4 accent"/>
         <ui:Label name="tooltip-description" text="Description" class="caption-regular"/>
