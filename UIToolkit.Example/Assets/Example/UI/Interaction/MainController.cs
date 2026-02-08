@@ -55,10 +55,9 @@ namespace UIToolkit.Tooltip.Example.UI.Interaction
         private void HandleMouseInput()
         {
             var mousePosition = localMapInputActions.mousePositionAction.ReadValue<Vector2>();
-            Debug.Log(mousePosition);
             HandleMouseHover(mousePosition);
             
-            if (localMapInputActions.leftClickAction.IsPressed())
+            if (localMapInputActions.leftClickAction.WasPressedThisFrame())
             {
                 LeftClick(mousePosition);
             }
@@ -80,12 +79,16 @@ namespace UIToolkit.Tooltip.Example.UI.Interaction
                 return;
             }
         
-            var inputRay = Camera.main.ScreenPointToRay(mousePosition);
-            if (Physics.Raycast(inputRay, out var hit))
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            var groundPlane = new Plane(Vector3.back, Vector3.zero);
+            
+            if (groundPlane.Raycast(ray, out var enter))
             {
+                Vector3 worldPosition = ray.GetPoint(enter);
+                
                 if (toolManager.ActiveTool != null)
                 {
-                    toolManager.ActiveTool.Apply(new Vector2(mousePosition.x, mousePosition.z));
+                    toolManager.ActiveTool.Apply(worldPosition);
                 }
             }
         }
@@ -123,6 +126,7 @@ namespace UIToolkit.Tooltip.Example.UI.Interaction
             var inputRay = Camera.main.ScreenPointToRay(mousePosition);
             if (!Physics.Raycast(inputRay, out var hit))
             {
+                ClearHover();
                 return;
             }
             

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UIToolkit.Tooltip.Example.Data.Enums;
 using UIToolkit.Tooltip.Example.UI.Buttons.Data;
 using UIToolkit.Tooltip.Example.UI.Buttons.Wrappers;
 using UIToolkit.Tooltip.Example.UI.Main.Toolbar.Enums;
@@ -51,23 +52,23 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar
             buttonsContainer!.Clear();
         
             CreateExampleButton(
-                "exp1", 
-                "BTN1", 
-                "BTN1", 
-                "BTN1 some description", 
+                nameof(FigureType.Cube), 
+                "CB", 
+                "Spawn cube", 
+                "Some description", 
                 25
                 );
             CreateExampleButton(
-                "exp2", 
-                "BTN2", 
-                "BTN2", 
+                nameof(FigureType.Sphere), 
+                "SP", 
+                "Spawn sphere", 
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
                 200
                 );
             CreateExampleButton(
-                "exp3", 
-                "BTN3", 
-                "BTN3", 
+                nameof(FigureType.Capsule), 
+                "CP", 
+                "Spawn capsule", 
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
                 80
                 );

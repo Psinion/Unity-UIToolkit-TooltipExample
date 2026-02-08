@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.UI.Tooltips.TooltipService
   uiDocument: {fileID: 804100241}
-  tooltipsFactory: {fileID: 2145982388}
+  tooltipsFactory: {fileID: 1808105060}
 --- !u!114 &804100241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +479,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.UI.Main.Toolbar
   uiDocument: {fileID: 988879297}
+--- !u!1 &1030476228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030476229}
+  m_Layer: 0
+  m_Name: Figures
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1030476229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030476228}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1343974069}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1266845993
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +619,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2145982387}
+  - {fileID: 1808105058}
   - {fileID: 1446154152}
+  - {fileID: 1030476229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1446154151
@@ -653,6 +686,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7ba979dadd4938acb736e2bd00ad1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.UI.Interaction.UILayerManager
+--- !u!1 &1808105057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1808105058}
+  - component: {fileID: 1808105060}
+  - component: {fileID: 1808105059}
+  m_Layer: 0
+  m_Name: Factories
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1808105058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808105057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1343974069}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1808105059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808105057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971169f0601c4e78913e2f2247011ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.Data.Factories.FiguresFactory
+  cube: {fileID: 7396870312914080132, guid: c0f6a976575496b47af4b49bedab2418, type: 3}
+  sphere: {fileID: -5536518502350327986, guid: b8d964f96eb70e749b5f84b796a2bd8d, type: 3}
+  capsule: {fileID: -7852635064331519698, guid: de0e3fa545a44c740a6e38ba62c0779b, type: 3}
+  spawnNode: {fileID: 1030476229}
+--- !u!114 &1808105060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808105057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef82f8c692ad4b07aaadeff36bb775a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.Data.Factories.TooltipsFactory
+  textTooltipTemplate: {fileID: 9197481963319205126, guid: 99db37b59738a19428beb80f982fe813, type: 3}
+  toolTooltipTemplate: {fileID: 9197481963319205126, guid: 6aa98c935ad9423ca29f6f5cb8813fbd, type: 3}
+  toolCursorTooltipTemplate: {fileID: 9197481963319205126, guid: de8af72e41af40c5b9fbdb06a6a308a7, type: 3}
 --- !u!1 &1926291215
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +861,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2145982387}
-  - component: {fileID: 2145982388}
   - component: {fileID: 2145982389}
   - component: {fileID: 2145982390}
   m_Layer: 0
@@ -789,21 +885,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1343974069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2145982388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145982386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef82f8c692ad4b07aaadeff36bb775a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.Data.Factories.TooltipsFactory
-  textTooltipTemplate: {fileID: 9197481963319205126, guid: 99db37b59738a19428beb80f982fe813, type: 3}
-  toolTooltipTemplate: {fileID: 9197481963319205126, guid: 6aa98c935ad9423ca29f6f5cb8813fbd, type: 3}
-  toolCursorTooltipTemplate: {fileID: 9197481963319205126, guid: de8af72e41af40c5b9fbdb06a6a308a7, type: 3}
 --- !u!114 &2145982389
 MonoBehaviour:
   m_ObjectHideFlags: 0

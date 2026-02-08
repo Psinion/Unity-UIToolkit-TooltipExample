@@ -1,4 +1,5 @@
-﻿using UIToolkit.Tooltip.Example.Gameplay;
+﻿using UIToolkit.Tooltip.Example.Data.Factories;
+using UIToolkit.Tooltip.Example.Gameplay;
 using UIToolkit.Tooltip.Example.UI.Buttons.Data.Base;
 using UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools.Base;
 using UIToolkit.Tooltip.Example.UI.Tooltips.Data;
@@ -28,7 +29,7 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools
             SubscribeToResourceChanges();
         }
     
-        public void Apply(Vector2 position)
+        public void Apply(Vector3 position)
         {
             if (data.TrySpendResources(resourcesService))
             {
@@ -40,18 +41,9 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools
             }
         }
 
-        private void SpawnDummy(Vector2 position)
+        private void SpawnDummy(Vector3 position)
         {
-            /*var spawnBuilding = buildingsFactory.SpawnBuilding(data.Key, cell.Coordinates);
-            if (spawnBuilding != null)
-            {
-                spawnBuilding.Entity.AddComponent(new SpawnGrowAnimation(0, 1, 3f));
-                ref var scaleComponent = ref spawnBuilding.Entity.GetComponent<WorldScaleComponent>();
-                scaleComponent.value = Vector3.zero;
-            
-                ref var transformRefComponent = ref spawnBuilding.Entity.GetComponent<TransformRef>();
-                transformRefComponent.value.localScale = Vector3.zero;
-            }*/
+            FiguresFactory.Instance.CreateFigure(data.Key, position);
         }
     
         public (ITooltipData data, bool cached) CreateTooltipData()

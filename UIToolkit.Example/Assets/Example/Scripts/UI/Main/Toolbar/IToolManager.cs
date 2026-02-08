@@ -7,9 +7,9 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar
 {
     public interface IToolManager
     {
-        ITool? ActiveTool { get; }
+        ITool ActiveTool { get; }
     
-        event Action<ITool?> OnActiveToolChanged;
+        event Action<ITool> OnActiveToolChanged;
 
         void SelectTool(ToolType type, ButtonData data = null);
     

@@ -26,15 +26,7 @@ namespace UIToolkit.Tooltip.Example.Data.Factories
         private VisualTreeAsset toolCursorTooltipTemplate;
 
         private Dictionary<TooltipType, VisualTreeAsset> visualTreeDict = new();
-        
-        //private GameResourcesService gameResourcesService;
-
         private Dictionary<TooltipType, TemplateContainer> cachedTemplates = new();
-
-        /*public TooltipsFactory(GameResourcesService gameResourcesService)
-        {
-            this.gameResourcesService = gameResourcesService;
-        }*/
 
         private void OnValidate()
         {

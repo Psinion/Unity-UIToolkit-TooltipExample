@@ -2,5 +2,5 @@
 
 namespace UIToolkit.Tooltip.Example.UI.Tooltips.Data
 {
-    public record ToolTooltipData(string title, string? description, int moneyRequirement) : ITooltipData;
+    public record ToolTooltipData(string title, string description, int moneyRequirement) : ITooltipData;
 }

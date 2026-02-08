@@ -63,7 +63,7 @@ namespace UIToolkit.Tooltip.Example.UI.Buttons.Wrappers
     
         private void OnResourceChanged(int newAmount)
         {
-            Debug.Log("Resource changed");
+            //Debug.Log("Resource changed");
             // TODO: UpdateButtonState();
         }
     

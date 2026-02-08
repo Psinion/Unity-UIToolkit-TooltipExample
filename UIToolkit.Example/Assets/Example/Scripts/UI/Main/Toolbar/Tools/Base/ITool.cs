@@ -6,7 +6,7 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools.Base
 {
     public interface ITool
     {
-        void Apply(Vector2 position);
+        void Apply(Vector3 position);
     
         void Select(ButtonData data);
         
