@@ -3,6 +3,7 @@ using UIToolkit.Tooltip.Example.UI.Main.Toolbar;
 using UIToolkit.Tooltip.Example.UI.Tooltips;
 using UIToolkit.Tooltip.Example.UI.Tooltips.Enums;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 namespace UIToolkit.Tooltip.Example.UI.Interaction
@@ -20,9 +21,6 @@ namespace UIToolkit.Tooltip.Example.UI.Interaction
             position = TooltipPosition.Right,
             maxWidth = 300f,
         };
-    
-        [SerializeField] 
-        private UILayerManager uiLayerManager;
         
         private MainInputActions localMapInputActions = new();
         
@@ -74,7 +72,7 @@ namespace UIToolkit.Tooltip.Example.UI.Interaction
         
         private void LeftClick(Vector3 mousePosition)
         {
-            if (uiLayerManager.IsOverInterfaceUI(mousePosition))
+            if (EventSystem.current.IsPointerOverGameObject())
             {
                 return;
             }
@@ -95,7 +93,7 @@ namespace UIToolkit.Tooltip.Example.UI.Interaction
 
         private void RightClick(Vector3 mousePosition)
         {
-            if (uiLayerManager.IsOverInterfaceUI(mousePosition))
+            if (EventSystem.current.IsPointerOverGameObject())
             {
                 return;
             }
@@ -117,7 +115,7 @@ namespace UIToolkit.Tooltip.Example.UI.Interaction
             }
             mouseHoverTimeCurrent = MouseHoverUpdateInterval;
         
-            if (uiLayerManager.IsOverInterfaceUI(mousePosition))
+            if (EventSystem.current.IsPointerOverGameObject())
             {
                 ClearHover();
                 return;

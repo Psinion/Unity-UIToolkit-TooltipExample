@@ -634,7 +634,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1446154152}
   - component: {fileID: 1446154153}
-  - component: {fileID: 1446154154}
   m_Layer: 0
   m_Name: Player Controller
   m_TagString: Untagged
@@ -673,19 +672,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.UI.Interaction.MainController
   toolManager: {fileID: 2145982390}
   uiTooltipService: {fileID: 804100240}
-  uiLayerManager: {fileID: 1446154154}
---- !u!114 &1446154154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446154151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e7ba979dadd4938acb736e2bd00ad1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIToolkit.Tooltip.Example.UI.Interaction.UILayerManager
 --- !u!1 &1808105057
 GameObject:
   m_ObjectHideFlags: 0

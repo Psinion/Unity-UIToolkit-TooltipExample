@@ -1,4 +1,5 @@
-﻿using UIToolkit.Tooltip.Example.Data.Factories;
+﻿using System;
+using UIToolkit.Tooltip.Example.Data.Factories;
 using UIToolkit.Tooltip.Example.Gameplay;
 using UIToolkit.Tooltip.Example.UI.Buttons.Data.Base;
 using UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools.Base;
@@ -8,10 +9,11 @@ using UnityEngine;
 
 namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools
 {
-    public class SpawnTool : ITool
+    public class SpawnTool : ITool, IDisposable
     {
         private ITooltipData cachedTooltipData;
         private bool tooltipNeedsUpdate = true;
+        private bool isSubscribed;
         
         private GameResourcesService resourcesService;
     
@@ -24,7 +26,13 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools
 
         public void Select(ButtonData data)
         {
+            if (isSubscribed)
+            {
+                UnsubscribeToResourceChanges();
+            }
+            
             this.data = data;
+            tooltipNeedsUpdate = true;
 
             SubscribeToResourceChanges();
         }
@@ -76,6 +84,11 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools
         private void OnResourceChanged(int amount)
         {
             tooltipNeedsUpdate = true;
+        }
+
+        public void Dispose()
+        {
+            UnsubscribeToResourceChanges();
         }
     }
 }
