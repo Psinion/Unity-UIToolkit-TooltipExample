@@ -42,7 +42,7 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar
         {
             if (activeTool != null)
             {
-                activeTool?.Cancel();
+                activeTool?.Clear();
                 ActiveTool = null;
                 TooltipService.Instance.Hide();
             }

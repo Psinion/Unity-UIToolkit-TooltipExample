@@ -26,10 +26,7 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools
 
         public void Select(ButtonData data)
         {
-            if (isSubscribed)
-            {
-                UnsubscribeToResourceChanges();
-            }
+            Clear();
             
             this.data = data;
             tooltipNeedsUpdate = true;
@@ -66,19 +63,27 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools
             return (cachedTooltipData, true);
         }
 
-        public void Cancel()
+        public void Clear()
         {
             UnsubscribeToResourceChanges();
         }
     
         private void SubscribeToResourceChanges()
         {
-            resourcesService.OnMoneyChanged += OnResourceChanged;
+            if (!isSubscribed)
+            {
+                resourcesService.OnMoneyChanged += OnResourceChanged;
+                isSubscribed = true;
+            }
         }
 
         private void UnsubscribeToResourceChanges()
         {
-            resourcesService.OnMoneyChanged -= OnResourceChanged;
+            if (isSubscribed)
+            {
+                resourcesService.OnMoneyChanged -= OnResourceChanged;
+                isSubscribed = false;
+            }
         }
     
         private void OnResourceChanged(int amount)

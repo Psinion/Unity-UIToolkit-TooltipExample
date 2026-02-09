@@ -10,7 +10,7 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar.Tools.Base
     
         void Select(ButtonData data);
         
-        void Cancel();
+        void Clear();
     
         (ITooltipData data, bool cached) CreateTooltipData();
     }
