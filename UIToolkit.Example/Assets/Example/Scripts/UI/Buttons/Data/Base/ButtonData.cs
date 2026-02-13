@@ -11,7 +11,6 @@ namespace UIToolkit.Tooltip.Example.UI.Buttons.Data.Base
         public string Title { get; }
         public string Description { get; }
         public int MoneyRequirement { get; }
-        public Action OnClick { get; set; }
 
         protected ButtonData(
             string key,
@@ -26,7 +25,6 @@ namespace UIToolkit.Tooltip.Example.UI.Buttons.Data.Base
             Title = title;
             Description = description;
             MoneyRequirement = moneyRequirement;
-            OnClick = onClick;
         }
     
         public virtual bool CanAfford(GameResourcesService resourcesService)

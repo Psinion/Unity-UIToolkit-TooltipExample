@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UIToolkit.Tooltip.Example.Data.Enums;
+using UIToolkit.Tooltip.Example.UI.Buttons.Commands;
 using UIToolkit.Tooltip.Example.UI.Buttons.Data;
 using UIToolkit.Tooltip.Example.UI.Buttons.Wrappers;
 using UIToolkit.Tooltip.Example.UI.Main.Toolbar.Enums;
@@ -94,12 +95,9 @@ namespace UIToolkit.Tooltip.Example.UI.Main.Toolbar
                 moneyRequirement
             );
 
-            buttonData.OnClick = () =>
-            {
-                toolManager.SelectTool(ToolType.Spawn, buttonData);
-            };
-        
-            var wrapper = new ButtonWrapper(buttonData);
+            var command = new SpawnCommand(toolManager, buttonData);
+            
+            var wrapper = new ButtonWrapper(buttonData, command);
             buttonWrappers.Add(wrapper);
             return wrapper;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using UIToolkit.Tooltip.Example.Gameplay;
+using UIToolkit.Tooltip.Example.UI.Buttons.Commands.Base;
 using UIToolkit.Tooltip.Example.UI.Buttons.Data.Base;
 using UIToolkit.Tooltip.Example.UI.Tooltips;
 using UnityEngine;
@@ -12,6 +13,8 @@ namespace UIToolkit.Tooltip.Example.UI.Buttons.Wrappers
         private readonly GameResourcesService resourcesService;
     
         private readonly ButtonData data;
+        private readonly ICommand command;
+        
         private Button button;
         public Button Button => button;
     
@@ -20,9 +23,11 @@ namespace UIToolkit.Tooltip.Example.UI.Buttons.Wrappers
         private bool isAvailable;
         public bool IsAvailable => isAvailable;
 
-        public ButtonWrapper(ButtonData data)
+        public ButtonWrapper(ButtonData data, ICommand command)
         {
             this.data = data;
+            this.command = command;
+            
             resourcesService = GameResourcesService.Instance;
         
             CreateButton();
@@ -38,7 +43,11 @@ namespace UIToolkit.Tooltip.Example.UI.Buttons.Wrappers
             };
             btn.AddToClassList("psi-button");
         
-            btn.clicked += OnButtonClicked;
+            if (command != null)
+            {
+                btn.clicked += command.Execute;
+            }
+            
             button = btn;
         }
     
@@ -67,14 +76,12 @@ namespace UIToolkit.Tooltip.Example.UI.Buttons.Wrappers
             // TODO: UpdateButtonState();
         }
     
-        private void OnButtonClicked()
-        {
-            data.OnClick?.Invoke();
-        }
-    
         public void Dispose()
         {
-            button.clicked -= data.OnClick;
+            if (command != null)
+            {
+                button.clicked -= command.Execute;
+            }
             button.RemoveFromHierarchy();
             tooltipTrigger.Dispose();
             UnsubscribeFromResources();
